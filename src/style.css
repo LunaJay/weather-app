@@ -114,3 +114,14 @@ h1 {
 .small-weather-pic {
   font-size: 40px;
 }
+
+.footnote {
+  text-align: center;
+}
+.footnote-link {
+  color: rgb(248, 157, 4);
+  text-decoration: none;
+}
+.footnote-link:hover {
+  color: white;
+}
