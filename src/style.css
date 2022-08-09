@@ -92,6 +92,7 @@ h1 {
 }
 .big-weather-pic-description {
   text-align: center;
+  text-transform: capitalize;
 }
 .today-more-data {
   border: 0px;
