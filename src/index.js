@@ -66,7 +66,7 @@ function displayWeather(response) {
   );
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#big-weather-pic-description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
 }
 
 function searchCity(city) {
