@@ -89,20 +89,6 @@ function handleSubmit(event) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-// WEATHER ICONS
-/*
-function displayIcons(response) {
-  let iconElement = document.querySelector("#icon");
-
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
-  searchCity(response.data.city);
-}
-*/
-
 // GEOLOCATION
 function findLocation(position) {
   let apiKey = "eb0b0300d9956572b5064c5573a9d814";
