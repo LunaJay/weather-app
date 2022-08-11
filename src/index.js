@@ -54,6 +54,12 @@ function displayWeather(response) {
     response.data.main.temp
   );
 
+  let bigWeatherPicElement = document.querySelector("#big-weather-pic");
+  bigWeatherPicElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
   document.querySelector("#temp-max").innerHTML = Math.round(
     response.data.main.temp_max
   );
@@ -82,6 +88,20 @@ function handleSubmit(event) {
 }
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
+
+// WEATHER ICONS
+/*
+function displayIcons(response) {
+  let iconElement = document.querySelector("#icon");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  searchCity(response.data.city);
+}
+*/
 
 // GEOLOCATION
 function findLocation(position) {

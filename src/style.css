@@ -87,9 +87,10 @@ h1 {
 }
 
 .big-weather-pic {
-  text-align: center;
-  font-size: 60px;
+  display: block;
+  margin: auto;
 }
+
 .big-weather-pic-description {
   text-align: center;
   text-transform: capitalize;
