@@ -73,6 +73,9 @@ function displayWeather(response) {
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#big-weather-pic-description").innerHTML =
     response.data.weather[0].description;
+
+  celciusTemperature = response.data.main.temp; //FAHRENHEIT CELCIUS element
+  temperatureElement.innerHTML = Math.round(celciusTemperature); //FAHRENHEIT CELCIUS element
 }
 
 function searchCity(city) {
@@ -106,3 +109,31 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Poznań");
+
+// FAHRENHEIT CELCIUS
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  celcius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let celciusTemperature = null;
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheitTemperature);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", displayCelciusTemperature);

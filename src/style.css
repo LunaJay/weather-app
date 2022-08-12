@@ -86,6 +86,14 @@ h1 {
   color: rgba(248, 157, 4, 1);
 }
 
+.active {
+  color: rgba(248, 157, 4, 1);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
+
 .big-weather-pic {
   display: block;
   margin: auto;
