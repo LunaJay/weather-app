@@ -138,33 +138,31 @@ fahrenheit.addEventListener("click", displayFahrenheitTemperature);
 let celcius = document.querySelector("#celcius");
 celcius.addEventListener("click", displayCelciusTemperature);
 
-//
+// FUTURE WEATHER
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun"];
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="col">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
       `
-      <div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
-        <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
-          alt=""
-          width="42"
-        />
-        <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max"> 18° </span>
-          <span class="weather-forecast-temperature-min"> 12° </span>
-        </div>
-      </div>
+      <div class="row">
+            <div class="col future-weather-day">
+              Thu<br />
+              <span class="future-weather-temperature">11°/22°</span>
+            </div>
+            <div class="col small-weather-pic">
+              <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+            </div>
+          </div>
   `;
   });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+displayForecast();
