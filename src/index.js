@@ -76,6 +76,8 @@ function displayWeather(response) {
 
   celciusTemperature = response.data.main.temp; //FAHRENHEIT CELCIUS element
   temperatureElement.innerHTML = Math.round(celciusTemperature); //FAHRENHEIT CELCIUS element
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -140,7 +142,8 @@ celcius.addEventListener("click", displayCelciusTemperature);
 
 // FUTURE WEATHER
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -161,8 +164,16 @@ function displayForecast() {
           </div>
   `;
   });
-
+  displayForecast();
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+
+//
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "eb0b0300d9956572b5064c5573a9d814";
+  let apiUrl = `https://api.openweather.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
