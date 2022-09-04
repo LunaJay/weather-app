@@ -75,6 +75,7 @@ function displayWeather(response) {
     response.data.weather[0].description;
 
   celciusTemperature = response.data.main.temp; //FAHRENHEIT CELCIUS element
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celciusTemperature); //FAHRENHEIT CELCIUS element
 
   getForecast(response.data.coord);
