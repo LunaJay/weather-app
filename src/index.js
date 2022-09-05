@@ -142,27 +142,42 @@ celcius.addEventListener("click", displayCelciusTemperature);
 
 // FUTURE WEATHER
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thu", "Fri", "Sat", "Sun"];
 
   let forecastHTML = `<div class="col">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="row">
             <div class="col future-weather-day">
-              Thu<br />
-              <span class="future-weather-temperature">11°/22°</span>
+              ${formatDay(forecastDay.dt)}
+              <br />
+              <span class="future-weather-temperature">${Math.round(
+                forecastDay.temp.max
+              )}°/${Math.round(forecastDay.temp.min)}°</span>
             </div>
             <div class="col small-weather-pic">
-              <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="40" />
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="" width="40" />
             </div>
           </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
