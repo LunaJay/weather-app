@@ -14,7 +14,7 @@ body {
 }
 
 .city-input-bar {
-  width: 100%;
+  max-width: 100%;
   border-color: rgba(248, 157, 4, 0.7);
   border-style: solid;
   border-radius: 4px;
