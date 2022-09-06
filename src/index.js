@@ -158,13 +158,13 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="col">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 7 && index > 0) {
       forecastHTML =
         forecastHTML +
         `
       <div class="row">
             <div class="col future-weather-day">
-              ${formatDay(forecastDay.dt)}
+              <strong>${formatDay(forecastDay.dt)}</strong>
               <br />
               <span class="future-weather-temperature">${Math.round(
                 forecastDay.temp.max
