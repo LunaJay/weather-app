@@ -27,6 +27,7 @@ body {
 }
 
 .current-location-button {
+  padding: 0 15px;
   border-color: rgba(236, 110, 75, 0.7);
   border-style: solid;
   border-radius: 4px;
