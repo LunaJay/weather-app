@@ -13,14 +13,14 @@ body {
   max-width: 500px;
 }
 
-input {
+.city-input-bar {
   width: 100%;
   border-color: rgba(248, 157, 4, 0.7);
   border-style: solid;
   border-radius: 4px;
   transition: all 200ms ease-in-out;
 }
-input:hover {
+.city-input-bar:hover {
   background-color: rgba(252, 249, 149, 0.3);
   border-color: rgba(248, 157, 4, 1);
   color: rgba(248, 157, 4, 1);
